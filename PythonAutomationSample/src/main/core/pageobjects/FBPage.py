@@ -17,19 +17,15 @@ class FBPage(BasePage, object):
 			super(BasePage, self).wait_until_visible_by_CSS("input#email.inputtext")
 			if self._user_field.is_displayed():
 				super(BasePage, self).fill_text(user)
-				pass
 			else:
 				super(BasePage, self).snap()
-				break
 			super(BasePage, self).wait_until_visible_by_CSS("input#pass.inputtext")
-			if slef_pass_field.is_displayed():
+			if self._pass_field.is_displayed():
 				super(BasePage, self).fill_text(passwd)
-				pass
 			else:
 				super(BasePage, self).snap()
-				break
 			super(BasePage, self).wait_until_visible_by_CSS("label > input#loginbutton")
-			if slef._login_btn.is_displayed():
+			if self._login_btn.is_displayed():
 				super(BasePage, self).click(login_btn)
 				pass
 			else:
