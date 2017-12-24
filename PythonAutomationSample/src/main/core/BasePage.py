@@ -9,6 +9,10 @@ try:
 	import unittest
 	import selenium.common.exceptions.WebDriverException as wde
 	from selenium import webdriver
+	# online reference -> https://jeremykao.wordpress.com/2015/06/10/pagefactory-pattern-in-python/
+	# PageFactory Pattern
+	from pageobject_support import cacheable, callable_find_by as find_by
+	########
 	from selenium.webdriver.common.by import By
 	from selenium.webdrier.common.keys import Keys
 	from selenium.webdriver.support.ui import WebDriverWait
@@ -19,8 +23,8 @@ except ImportError as e:
 
 
 
-# we can add on the tests section ClassName(unittest.TestCase) for testing implementations
-class BasePage:
+# feed object to BasePage (PageFactory) -> find_by <- 
+class BasePage(object):
 
 	# CONSTRUCTOR
 	def __init__(self, driver):

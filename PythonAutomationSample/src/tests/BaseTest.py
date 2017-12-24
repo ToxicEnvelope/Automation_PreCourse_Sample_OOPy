@@ -6,7 +6,7 @@ import sys
 import unittest
 from selenium import webdriver
 from .core.pageobjects.FBPage import *
-#from selenium.webdriver.common.keys import Keys <---> simulate key events
+
 
 
 class BaseTest(unittest.TestCase):
@@ -17,6 +17,7 @@ class BaseTest(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome(self.chromedriver_path)
+
 
     # def test_search_in_python_org(self):
     #     driver = self.driver
