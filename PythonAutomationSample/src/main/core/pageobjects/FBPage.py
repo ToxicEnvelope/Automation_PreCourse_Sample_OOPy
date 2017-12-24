@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+from .core.utils.Logger import *
 
 class FBPage(BasePage, object):
 
@@ -33,6 +34,6 @@ class FBPage(BasePage, object):
 				break
 			return True
 		except Exception as e:
-			print str(e)
+			super(BasePage, self)._logger.critical("'Invalid Input : " + str(e))
 			return False
 
