@@ -1,12 +1,18 @@
-import unittest
+#!/usr/bin/env python
+
+
 import os
+import sys
+import unittest
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+from .core.pageobjects.FBPage import *
+#from selenium.webdriver.common.keys import Keys <---> simulate key events
+
 
 class BaseTest(unittest.TestCase):
 
-    chromedriver_path = "'c:\\Users\\Home\\Desktop\\Python-Automation\\src\\main\\execs\\chromedriver.exe'"
-    # base_url = "https://www.python.org"
+    chromedriver_path = "c:\\Users\\Home\\Desktop\\Python-Automation\\PythonAutomationSample\\src\\main\\execs\\chromedriver.exe"
+    base_url_1 = "https://www.python.org"
     base_url = "https://www.facebook.com"
 
     def setUp(self):
@@ -14,7 +20,7 @@ class BaseTest(unittest.TestCase):
 
     # def test_search_in_python_org(self):
     #     driver = self.driver
-    #     driver.get(self.base_url)
+    #     driver.get(self.base_url_1)
     #     self.assertIn("Python", driver.title)
     #     elem = driver.find_element_by_name("q")
     #     elem.send_keys("pycon")
@@ -22,9 +28,10 @@ class BaseTest(unittest.TestCase):
     #     assert "No results found." not in driver.page_source
 
     # Test a simple session login / authentication with FB site
-    def TEST_FB_LOGIN(self):
-        self.driver.get(self.base_url)
-        fb_page = FBPage(self.driver)
+    def test_fb_login(self):
+        driver = self.driver
+        driver.get(self.base_url)
+        fb_page = FBPage(driver)
         fb_page.attempt_to_authenticate("sysmurff@gmail.com", "Aa123456")
 
     def tearDown(self):
