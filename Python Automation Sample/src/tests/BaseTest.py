@@ -25,7 +25,7 @@ class BaseTest(unittest.TestCase):
     def TEST_FB_LOGIN(self):
         self.driver.get(self.base_url)
         fb_page = FBPage(self.driver)
-        fb.attempt_to_authenticate("sysmurff@gmail.com", "Aa123456")
+        fb_page.attempt_to_authenticate("sysmurff@gmail.com", "Aa123456")
 
     def tearDown(self):
         self.driver.close()
