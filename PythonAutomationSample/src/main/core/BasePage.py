@@ -15,7 +15,7 @@ try:
 	########
 	# online reference -> https://pythonselenium.blogspot.co.il/2014/12/logging-exception-in-selenium.html
 	# Logger for selenium in python
-	from .core.utils.Logger import *
+	from src.main.core.utils import Logger
 	from selenium.webdriver.common.by import By
 	from selenium.webdrier.common.keys import Keys
 	from selenium.webdriver.support.ui import WebDriverWait
@@ -23,6 +23,7 @@ try:
 except ImportError as e:
 	pip = lambda : os.system('pip install ' + str(e)[15:])
 	pip()
+
 
 
 

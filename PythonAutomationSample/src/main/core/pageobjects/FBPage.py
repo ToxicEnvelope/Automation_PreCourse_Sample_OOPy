@@ -1,6 +1,8 @@
 #!/usr/bin/env python
+import os
+import sys
+from src.main.core.utils import Logger
 
-from .core.utils.Logger import *
 
 class FBPage(BasePage, object):
 

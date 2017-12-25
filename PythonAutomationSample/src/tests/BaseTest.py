@@ -5,11 +5,11 @@ import os
 import sys
 import unittest
 from selenium import webdriver
-from .core.utils.Logger import *
-from .core.pageobjects.FBPage import *
+from src.main.core.utils import Logger
+from src.main.core.pageobjects import FBPage
 
 
-
+    
 class BaseTest(unittest.TestCase):
 
     chromedriver_path = "c:\\Users\\Home\\Desktop\\Python-Automation\\PythonAutomationSample\\src\\main\\execs\\chromedriver.exe"
