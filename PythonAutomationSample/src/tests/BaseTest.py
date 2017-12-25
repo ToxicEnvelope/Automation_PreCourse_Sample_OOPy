@@ -5,6 +5,7 @@ import os
 import sys
 import unittest
 from selenium import webdriver
+from src.main.core.utils.setup import load
 from src.main.core.utils import Logger
 from src.main.core.pageobjects import FBPage
 
@@ -12,14 +13,20 @@ from src.main.core.pageobjects import FBPage
     
 class BaseTest(unittest.TestCase):
 
+    # loading all dependencies to PYTHONPATH
+    load()
     chromedriver_path = "c:\\Users\\Home\\Desktop\\Python-Automation\\PythonAutomationSample\\src\\main\\execs\\chromedriver.exe"
     base_url_1 = "https://www.python.org"
     base_url = "https://www.facebook.com"
     logger = Logger()
+    
     def setUp(self):
-        logger.info("----- set up started -----")
-        self.driver = webdriver.Chrome(self.chromedriver_path)
-        logger.info("----- set up ended -----")
+        try:
+            logger.info("----- set up started -----")
+            self.driver = webdriver.Chrome(self.chromedriver_path)
+            logger.info("----- set up ended -----")
+        except Exception as e:
+            logger.critical("Unknown Exception in setUp!", e)
 
 
     #### TEST REFERENCE ####
@@ -34,18 +41,23 @@ class BaseTest(unittest.TestCase):
 
     # Test a simple session login / authentication with FB site
     def test_fb_login(self):
-        logger.info("----- test started -----")
-        driver = self.driver
-        driver.get(self.base_url)
-        fb_page = FBPage(driver)
-        fb_page.attempt_to_authenticate("sysmurff@gmail.com", "Aa123456")
-        logger.info("----- test ended -----")
+        try:
+            logger.info("----- test started -----")
+            driver = self.driver
+            driver.get(self.base_url)
+            fb_page = FBPage(driver)
+            fb_page.attempt_to_authenticate("sysmurff@gmail.com", "Aa123456")
+            logger.info("----- test ended -----")
+        except Exception as e:
+            logger.critical("Unknown Exception in Test RunTime!", e)
 
     def tearDown(self):
-        logger.info("----- tear down started -----")
-        self.driver.close()
-        logger.info("----- tear down ended -----")
-
+        try:
+            logger.info("----- tear down started -----")
+            self.driver.close()
+            logger.info("----- tear down ended -----")
+        except Exception as e:
+            logger.critical("Unknown Exception in tearDown!", e)
 
 
 if __name__ == "__main__":
