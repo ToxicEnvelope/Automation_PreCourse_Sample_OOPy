@@ -1,5 +1,6 @@
 #!/usr/bin/env python 
 
+import os
 #Import the logging module
 import logging
 
@@ -14,9 +15,11 @@ class Logger:
 		self._logger = logging.getLogger(__name__)
 		self._logger.setLevel(logging.INFO)
 		#Create a file handler
-		self._handler_warn = logging.FileHandler('c:\\Users\\Home\\Desktop\\Python-Automation\\PythonAutomationSample\\src\\tests\\results\\log\\warning_log.txt')
+		#self._handler_warn = logging.FileHandler('c:\\Users\\Home\\Desktop\\Python-Automation\\PythonAutomationSample\\src\\tests\\results\\log\\warning_log.txt')
+		self._handler_warn = logging.FileHandler( os.getcwd() + "/src/tests/results/log/warning_log.txt")
 		self._handler_warn.setLevel(logging.WARNING)
-		self._handler_info = logging.FileHandler('c:\\Users\\Home\\Desktop\\Python-Automation\\PythonAutomationSample\\src\\tests\\results\\log\\info_log.txt')
+		#self._handler_info = logging.FileHandler('c:\\Users\\Home\\Desktop\\Python-Automation\\PythonAutomationSample\\src\\tests\\results\\log\\info_log.txt')
+		self._handler_warn = logging.FileHandler( os.getcwd() + "/src/tests/results/log/info.txt")
 		self._handler_info.setLevel(logging.INFO)
 		#create a logging format	
 		self._formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
