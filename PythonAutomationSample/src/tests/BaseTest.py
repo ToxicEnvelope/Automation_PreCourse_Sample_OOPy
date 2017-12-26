@@ -3,11 +3,17 @@
 
 import os
 import sys
+paths = ['../main/core/Pageobjects',\
+         '../Utils']
+for p in paths:
+    os.chdir(p)
+    current_dir = os.getcwd()
+    sys.path.append(current_dir)
 import unittest
 from selenium import webdriver
-from src.main.core.utils.setup import load
-from src.main.core.utils import Logger
-from src.main.core.pageobjects import FBPage
+from src.main.core.Utils import *
+from src.main.core.Utils import *
+from src.main.core.Pageobjects import *
 
 
     

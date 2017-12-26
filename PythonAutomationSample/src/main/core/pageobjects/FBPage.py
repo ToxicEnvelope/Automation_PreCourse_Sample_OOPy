@@ -1,7 +1,12 @@
 #!/usr/bin/env python
 import os
 import sys
-from src.main.core.utils import Logger
+paths = ['../main/core/Utils']
+for p in paths:
+	os.chdir(p)
+	current_dir = os.getcwd()
+	sys.path.append(current_dir)
+from src.main.core.Utils.Logger import Logger
 
 
 class FBPage(BasePage, object):

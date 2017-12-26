@@ -7,6 +7,13 @@ try:
 	import pip
 	import time
 	import unittest
+
+	paths = ['../main/core/Utils']
+	for p in paths:
+		os.chdir(p)
+		current_dir = os.getcwd()
+		sys.path.append(current_dir)
+
 	import selenium.common.exceptions.WebDriverException as wde
 	from selenium import webdriver
 	# online reference -> https://jeremykao.wordpress.com/2015/06/10/pagefactory-pattern-in-python/
@@ -15,7 +22,7 @@ try:
 	########
 	# online reference -> https://pythonselenium.blogspot.co.il/2014/12/logging-exception-in-selenium.html
 	# Logger for selenium in python
-	from src.main.core.utils import Logger
+	from src.main.core.Utils.Logger import Logger
 	from selenium.webdriver.common.by import By
 	from selenium.webdrier.common.keys import Keys
 	from selenium.webdriver.support.ui import WebDriverWait
